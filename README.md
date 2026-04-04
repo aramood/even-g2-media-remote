@@ -24,6 +24,12 @@ Release assets:
 - `G2MediaRemote.ehpk`
 - `app-release.apk`
 
+## Screenshot
+
+Actual capture from Even G2 while running this tool:
+
+![Even G2 live screenshot](docs/images/g2-live-screenshot.png)
+
 ## What It Does
 
 The Even Hub app talks to a local Android helper app running on the same phone.
