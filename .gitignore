@@ -1,0 +1,30 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Temporary workspace folders
+tmp_even_sdk/
+
+# Root logs
+*.log
+
+# Android
+android-helper/.gradle/
+android-helper/.idea/
+android-helper/local.properties
+android-helper/**/build/
+android-helper/**/captures/
+
+# Even Hub / Node
+even-hub/node_modules/
+even-hub/dist/
+even-hub/.vite/
+even-hub/*.local
+even-hub/*.png
+even-hub/*.ehpk
+
+# Misc
+*.keystore
+*.jks

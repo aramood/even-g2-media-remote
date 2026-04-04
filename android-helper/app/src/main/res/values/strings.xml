@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">G2 Media Helper</string>
+  <string name="helper_channel_name">G2 Media Helper</string>
+  <string name="helper_channel_description">Foreground bridge for G2 localhost media control.</string>
+  <string name="helper_notification_title">G2 localhost bridge active</string>
+  <string name="helper_notification_text">Serving http://127.0.0.1:28765 for Even Hub.</string>
+</resources>
