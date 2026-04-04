@@ -48,13 +48,16 @@ The Even Hub app uses that local bridge to:
 - display playback progress
 - send media control commands from G2 / R1
 
-## Commands
+## Controls
 
-The current implementation supports:
+Current controls exposed on G2 / R1:
 
 - `toggle_play_pause`
 - `skip_previous`
 - `skip_next`
+
+Additional commands currently supported by the Android helper API, but not exposed on the main G2 / R1 UI:
+
 - `seek_relative_ms`
 - `adjust_volume_steps`
 - `refresh_session`
