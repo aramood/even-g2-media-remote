@@ -16,6 +16,7 @@ android-helper/.idea/
 android-helper/local.properties
 android-helper/**/build/
 android-helper/**/captures/
+android-helper/app/release/
 
 # Even Hub / Node
 even-hub/node_modules/
