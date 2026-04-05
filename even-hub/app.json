@@ -6,7 +6,16 @@
   "min_app_version": "2.0.0",
   "min_sdk_version": "0.0.9",
   "entrypoint": "index.html",
-  "permissions": [],
+  "permissions": [
+    {
+      "name": "network",
+      "desc": "This app needs network access only to communicate with a local companion service on the same Android phone for playback status and media control.",
+      "whitelist": [
+        "http://127.0.0.1:28765",
+        "ws://127.0.0.1:28765"
+      ]
+    }
+  ],
   "supported_languages": [
     "ja",
     "en"
