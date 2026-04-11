@@ -29,6 +29,7 @@ const NAMES = {
 
 const TITLE_WINDOW = 24;
 const SUBTITLE_WINDOW = 26;
+const TEXT_CONTAINER_WIDTH = 520;
 const MARQUEE_GAP = '     ';
 const MARQUEE_STEP_MS = 700;
 
@@ -83,7 +84,7 @@ function textContainer(
     containerName,
     xPosition: 0,
     yPosition,
-    width: 576,
+    width: TEXT_CONTAINER_WIDTH,
     height,
     borderWidth: 0,
     borderColor: 0,
