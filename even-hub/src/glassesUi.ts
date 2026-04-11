@@ -30,6 +30,8 @@ const NAMES = {
 const TITLE_WINDOW = 24;
 const SUBTITLE_WINDOW = 26;
 const TEXT_CONTAINER_WIDTH = 520;
+const PROGRESS_WINDOW = 36;
+const LINE_HEIGHT = 34;
 const MARQUEE_GAP = '     ';
 const MARQUEE_STEP_MS = 700;
 
@@ -100,7 +102,7 @@ function listContainer(items: string[]): ListContainerProperty {
     containerID: IDS.actions,
     containerName: NAMES.actions,
     xPosition: 0,
-    yPosition: 92,
+    yPosition: 112,
     width: 576,
     height: 168,
     paddingLength: 0,
@@ -122,7 +124,7 @@ function marqueeText(value: string, windowSize: number, nowMs: number): string {
   }
 
   if (value.length <= windowSize) {
-    return value;
+    return value.padEnd(windowSize, ' ');
   }
 
   const padded = `${value}${MARQUEE_GAP}`;
@@ -136,9 +138,9 @@ function buildStartPage(actions: ActionItem[]): CreateStartUpPageContainer {
   return new CreateStartUpPageContainer({
     containerTotalNum: 4,
     textObject: [
-      textContainer(IDS.line1, NAMES.line1, 0, 34, 'Connecting...'),
-      textContainer(IDS.line2, NAMES.line2, 34, 28, ''),
-      textContainer(IDS.line3, NAMES.line3, 62, 28, '00:00 / 00:00'),
+      textContainer(IDS.line1, NAMES.line1, 0, LINE_HEIGHT, 'Connecting...'),
+      textContainer(IDS.line2, NAMES.line2, 36, LINE_HEIGHT, ''),
+      textContainer(IDS.line3, NAMES.line3, 72, LINE_HEIGHT, '00:00 / 00:00'),
     ],
     listObject: [listContainer(actions.map(labelForGlasses))],
   });
@@ -148,9 +150,9 @@ function buildRebuildPage(actions: ActionItem[]): RebuildPageContainer {
   return new RebuildPageContainer({
     containerTotalNum: 4,
     textObject: [
-      textContainer(IDS.line1, NAMES.line1, 0, 34, ''),
-      textContainer(IDS.line2, NAMES.line2, 34, 28, ''),
-      textContainer(IDS.line3, NAMES.line3, 62, 28, ''),
+      textContainer(IDS.line1, NAMES.line1, 0, LINE_HEIGHT, ''),
+      textContainer(IDS.line2, NAMES.line2, 36, LINE_HEIGHT, ''),
+      textContainer(IDS.line3, NAMES.line3, 72, LINE_HEIGHT, ''),
     ],
     listObject: [listContainer(actions.map(labelForGlasses))],
   });
@@ -269,6 +271,7 @@ export class GlassesUi {
     const nowMs = Date.now();
     const title = marqueeText(viewModel.title, TITLE_WINDOW, nowMs);
     const subtitle = marqueeText(viewModel.subtitle, SUBTITLE_WINDOW, nowMs);
+    const progress = viewModel.progress.padEnd(PROGRESS_WINDOW, ' ');
 
     if (!this.initialized) {
       await this.bridge.createStartUpPageContainer(buildStartPage(this.displayedActions));
@@ -282,7 +285,7 @@ export class GlassesUi {
     await Promise.all([
       upgradeText(this.bridge, IDS.line1, NAMES.line1, title),
       upgradeText(this.bridge, IDS.line2, NAMES.line2, subtitle),
-      upgradeText(this.bridge, IDS.line3, NAMES.line3, viewModel.progress),
+      upgradeText(this.bridge, IDS.line3, NAMES.line3, progress),
     ]);
   }
 
